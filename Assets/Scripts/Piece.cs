@@ -24,6 +24,16 @@ public class Piece : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            //Función para desactivar todas las piezas dentro de la pieza principal
+            // esto a través de desactivar sus colliders y renderers para no 
+            // desactivar sus demás components como audio source y demás
+            Collider[] childColliders = transform.parent.GetComponentsInChildren<Collider>();
+            foreach (Collider childCollider in childColliders)
+            {
+                childCollider.enabled = false;
+                childCollider.GetComponent<Renderer>().enabled = false;
+            }
+
             if (audioSource != null)
             {
                 audioSource.time = offsetSeconds;
