@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -105,5 +106,9 @@ public class GameManager : MonoBehaviour
     public void ReloadLevel()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+    }
+    public void RestartGame(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }
